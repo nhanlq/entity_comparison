@@ -182,11 +182,11 @@ class EntityComparisonController extends ControllerBase implements ContainerInje
       $response->addCommand($replace);
 
       // Update compare table.
-      //if (strpos($destination, '/compare/')) {
+      if (strpos($destination, '/compare/')) {
         $compare_content = $this->compare($entity_comparison_id);
         $updateTable = new ReplaceCommand('#comparison-table', $this->renderer->renderPlain($compare_content));
         $response->addCommand($updateTable);
-     // }
+      }
 
       // Ajax messages.
       foreach ($message_list as $message) {
